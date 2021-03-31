@@ -1,0 +1,225 @@
+Debug do lista Duplamente ligada
+
+1º Foi criado um array com tres elementos
+listaDuplalig.acrescentar('Joao')
+listaDuplalig.acrescentar('lucas')
+listaDuplalig.acrescentar('maria')
+
+array [João, lucas, maria]
+
+2º Depois foi fora acrescentados mais elementos passando posições
+listaDuplalig.enserirPosicao(0,'James-Bonde')
+listaDuplalig.enserirPosicao(4,'Eren')
+listaDuplalig.enserirPosicao(2,'Mikasa')                       
+_____________________________________________________________________________________________________
+         
+           Debug  PRIMEIRO ELEMENTO JAMES
+* enserirPosicao = function(posicao, elemento) 
+                               0      James
+
+Primeira condição:
+* if(posicao >= 0 && posicao <= tamanho)
+posicao passada é maior ou igual a 0 e posicao é menor ou igual ao tamanho do array
+(posicao)0>=0 e (posicao)0<=3(tamanho do array)? true.]
+
+* Então a variavel 'no' recebe uma instancia nova o objeto James
+let 'no' = 0,James.]
+______________________________________
+* Variavel atual recebe o valor da var 'cabeca(João)' que é sempre o primeiro elemento do array
+atual = João
+______________________________________
+* Variavel  anteriorVar é undfined.
+___________________________________
+* variavel index inicia em 0.
+______________________________________
+2 segunda condição:
+*  if (posicao ===0)
+Explic: posicao passada é igual a zero? true, posicao passada foi valor 0, e elemento James
+
+Sendo true passada para a condição aninhada 
+ if (!cabeca) negação de verdadeiro
+Explic: a variavel cabeca é null? false
+
+Então passa para o else 
+
+*  no.proximoProp = atual
+ Explic: A variavel 'no (James)' recebe na sua propriedade: proximoProp = 'atual(Joao)'. 
+this.elemento = James    
+this.antesProp = null       ordem no Array [null,James, João ...]
+this.proximoProp = Joao
+
+_____________________________________________________________________________________________________
+* atual.antesProp = no
+  A variavel 'atual(Joao)' recebe na sua propriedade: antesProp = 'no(James)'
+    this.elemento = Joao
+    this.antesProp = James   ordem do array [null,James, João, Lucas ...]
+    this.proximoProp:Lucas
+_____________________________________________________________________________________________________
+* cabeca = no 
+A variavel 'cabeca(João)' agora recebe 'no(James)'
+_____________________________________________________________________________________________________
+* tamanho++
+tamanho é incrementado em mais 1
+_____________________________________________________________________________________________________
+* E da um return true
+FIM Execução
+
+_____________________________________________________________________________________________________
+            Debug SEGUNDO ELEMENTO EREN 
+
+* enserirPosicao = function(posicao, elemento) 
+                             4       Eren
+_____________________________________________________________________________________________________
+Primeira condição:
+* if(posicao >= 0 && posicao <= tamanho)
+posicao passada é maior ou igual a 0 E posicao é menor ou igual ao tamanho do array
+  °Lembrando que Array agora tem tamanho 4
+(posicao)4>=0 e (posicao)0<=4(tamanho do array)? true.
+_____________________________________________________________________________________________________
+*  no = new NoConstrutor(elemento)
+ Então a variavel 'no' recebe uma instancia nova, o objeto Eren
+ 'no' = 4,Eren
+_____________________________________________________________________________________________________
+* Variavel atual recebe valor da var 'cabeca(James)' que é sempre é o  primeiro elemento do array
+atual = James
+______________________________________
+* Variavel  anteriorVar é undfined.
+___________________________________
+* variavel index inicia em 0.
+________________________________
+ Segunda condição SE:
+*if (posicao ===0)
+Explic: posicao passada é igual a zero? false, não posicao é 4
+
+Sai desse bloco 
+_____________________________________________________________________________________________________
+* Entra na condição SENAO SE
+else if (posicao === tamanho)
+Explic: posicao passada é igual ao tamanho do Array atual? true, (posicao) 4  4 (ArrayTamanho)
+_
+entra no bloco
+_____________________________________________________________________________________________________
+* atual = cauda
+A variavel atual(James) recebe o valor da var 'cauda(maria)'
+_____________________________________________________________________________________________________
+* atual.proximoProp = no
+A variavel 'atual(maria)' recebe na sua propriedade: proximoProp = no(Eren)
+
+this.elemento = maria
+this.antesProp = lucas      Ordem Array [...Lucas, maria, Eren]
+this.proximoProp = Eren
+
+_____________________________________________________________________________________________________
+
+* no.antesProp = atual
+A variavel 'no(Eren)' recebe na sua propriedade: antesProp = atual(maria)
+this.elemento = Eren
+this.antesProp = maria   Ordem Array [...Lucas, maria, Eren,null]
+this.proximoProp = null
+_____________________________________________________________________________________________________
+*  cauda = no   
+A variavel 'cauda(maria)'  recebe o valor da var 'no(Eren)'
+_____________________________________________________________________________________________________
+* tamanho++
+tamanho é incrementado em mais 1
+_____________________________________________________________________________________________________
+* E da um return true
+FIM Execução
+
+_____________________________________________________________________________________________________
+                  Debug TERCEIRO ELEMENTO MIKASA
+
+* enserirPosicao = function(posicao, elemento) 
+                              2       Mikasa
+Primeira condição:
+* if(posicao >= 0 && posicao <= tamanho)
+posicao passada é maior ou igual a 0 E posicao é menor ou igual ao tamanho do array
+  °Lembrando que Array agora tem tamanho 4
+(posicao)4>=0 e (posicao)0<=5(tamanho do array)? true.
+_____________________________________________________________________________________________________
+* no = new NoConstrutor(elemento)
+Então a variavel 'no' recebe uma instancia nova, o objeto Mikasa
+ 'no' = 2,Mikasa
+ _____________________________________________________________________________________________________
+* Variavel 'atual' recebe valor da var 'cabeca(James)' que é sempre é o primeiro elemento do array
+atual = James
+______________________________________
+* Variavel  anteriorVar é undfined.
+___________________________________
+* variavel index inicia em 0.
+________________________________
+ Segunda condição SE:
+*if (posicao ===0)
+Explic: posicao passada é igual a zero? false, não posicao é 2
+
+Sai desse bloco 
+_____________________________________________________________________________________________________
+ * Entra na condição SENAO SE
+else if (posicao === tamanho)
+Explic: posicao passada é igual ao tamanho do Array atual? false, (posicao) 2  5 (ArrayTamanho)
+
+PASSA PRA condição else
+_____________________________________________________________________________________________________
+* Entra na condição SENAO
+laço de repetição while condição que repetir até a condição ser false
+(index++ < posicao), index(0) é menor que posicao(2)? true
+      0 <  2
+*  anteriorVar = atual
+A variavel 'anteriorVar(undfined)' recebe a var 'atual(James)'  
+
+* atual = atual.proximoProp
+A variavel atual recebe o valor da sua propriedade: proximoProp = João
+atual = João
+
+this.elemento = James
+this.proximoProp = João
+
+
+REPETE O laço
+laço de repetição while condição que repetir até a condição ser false
+incrementa a variavel index em 1
+(index++ < posicao)
+       1 < 2
+index é menor que posicao(2)? true
+
+*  anteriorVar = atual
+A variavel 'anteriorVar' recebe a var 'atual(João)'
+
+* atual = atual.proximoProp
+A variavel atual(João) vai receber o valor da sua propriedade: proximoProp  'Lucas'
+                        Novo Valor
+                        atual = Lucas
+this.elemento = João
+this.proximoProp = lucas    ordem array [...João,lucas,..]
+
+REPETE O laço
+
+laço de repetição while condição que repetir até a condição ser false
+incrementa a variavel index em 1
+(index++ < posicao)
+      2  <  2
+index é menor que posicao(2)? false
+
+_____________________________________________________________________________________________________
+
+* no.proximoProp = atual
+A variavel 'no(Mikasa)' vai receber na sua propriedade: proximoProp recebe 'Lucas'
+this.elemento= Mikasa
+this.proximoProp = Lucas         ordem array[...Mikasa, Lucas...]
+_____________________________________________________________________________________________________
+*  anteriorVar.proximoProp = no
+A variavel 'anteriorVar(João)' na sua propriedade: proximoProp recebe 'Mikasa'
+this.elemento = João                          
+this.proximoProp = Mikasa         ordem array[...João, Mikasa...]
+_____________________________________________________________________________________________________
+* atual.antesProp = no
+ var 'atual(Lucas)' Na propriedade: antesProp recebe 'Mikasa'
+ this.elemento = Lucas      ordem array[...Mikasa, Lucas...]
+ this.antesProp = Mikasa
+_____________________________________________________________________________________________________
+* no.antesProp = anteriorVar
+var 'no(Mikasa)' na propriedade: antesProp recebe 'Joao'
+
+* var tamanho incrementa em mais 1
+
+* retorna true
