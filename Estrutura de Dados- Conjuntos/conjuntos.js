@@ -66,26 +66,17 @@ function Conjunto(){
 }
 // instanciando a classe conjuntos
 
-let conjuto = new Conjunto();
+let conjuntoA = new Conjunto()
 
-conjuto.add(1)
-conjuto.add(2)
-conjuto.add(3)
-conjuto.add(4)
-conjuto.add(5)
-conjuto.remover(4)
+conjuntoA.add(1)
+conjuntoA.add(2)
+conjuntoA.add(3)
 
-console.log(conjuto.tamanho())
-console.log(conjuto.valores())
-console.log(conjuto.esta(3))
+let conjuntoB = new Conjunto()
+conjuntoB.add(3)
+conjuntoB.add(4)
+conjuntoB.add(5)
+conjuntoB.add(6)
 
-conjuto.limpar();
-console.log(conjuto.valores())
-console.log(conjuto.tamanho())
-
-conjuto.add('maria')
-conjuto.add('jose')
-conjuto.add('lucas')
-conjuto.add('luana')
-console.log(conjuto.valores())
-console.log(conjuto.tamanho())
+let uniaoAB = conjuntoA.uniao(conjuntoB)
+console.log(uniaoAB.valores())
