@@ -69,13 +69,42 @@ function DuplamListaLigada(){
 }
 
     this.removerPosicao = function(posicao){
-    
-    
+    if (posicao > -1 && posicao < tamanho) {
+        let atual = cabeca,
+        anteriorVar,
+        index= 0
+
+        if (posicao === 0) {
+            cabeca = atual.proximoProp
+
+            if (posicao === 1) {
+                cauda = null
+            }else{
+                cabeca.antesProp = null
+            }
+        } else if (posicao === tamanho -1) {
+            atual = cauda
+            cauda = atual.antesProp
+            cauda.proximoProp = null
+        } else {
+            while (index++ < posicao) {
+                anteriorVar = atual
+                atual = atual.proximoProp
+            }
+            anteriorVar.proximoProp = atual.proximoProp
+            atual.proximoProp.antesProp = anteriorVar
+        }
+        tamanho --
+        return atual.elemento
+    } else{
+        return null
+    }
 }
     
     this.removerElemento = function(elemento){
-    let index = this.indexOf(elemento)
-    return this.removerPosicao(index)
+        let index = this.indexOf(elemento)
+        
+        return this.removerPosicao(index)
     }
 
     this.indexOf = function(elemento){
@@ -127,4 +156,10 @@ listaDuplalig.enserirPosicao(0,'James')
 listaDuplalig.enserirPosicao(4,'Eren')
 listaDuplalig.enserirPosicao(2,'Mikasa')
 listaDuplalig.print();
+listaDuplalig.removerPosicao(0)
 
+listaDuplalig.print();
+
+listaDuplalig.removerPosicao(2)
+listaDuplalig.removerPosicao(1)
+listaDuplalig.print();
