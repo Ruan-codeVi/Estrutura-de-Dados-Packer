@@ -46,6 +46,23 @@ function Conjunto(){
     }
     return valores
  }
+
+ this.uniao = function(outroConjunto){
+    let uniaoConjunto = new Conjunto(),
+    valores = this.valores()
+
+    for (let i = 0; i < valores.length; i++) {
+        uniaoConjunto.add(valores[i])        
+    }
+    valores = outroConjunto.valores()
+
+    for (let i = 0; i < valores.length; i++){
+        uniaoConjunto.add(valores[i])
+    }
+
+    return uniaoConjunto
+
+ }
 }
 // instanciando a classe conjuntos
 
