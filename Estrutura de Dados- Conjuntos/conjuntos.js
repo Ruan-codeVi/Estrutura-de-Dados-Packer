@@ -63,6 +63,19 @@ function Conjunto(){
     return uniaoConjunto
 
  }
+
+ this.intersecao = function(outroConjunto){
+     let intersecaoConju = new Conjunto(),
+     valores = this.valores()
+
+     for(let i = 0; i < valores.length; i++){
+         if (outroConjunto.esta(valores[i])) {
+             intersecaoConju.add(valores[i])
+         }
+     }
+     return intersecaoConju
+
+ }
 }
 // instanciando a classe conjuntos
 
