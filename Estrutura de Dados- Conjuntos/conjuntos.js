@@ -86,10 +86,9 @@ conjuntoA.add(2)
 conjuntoA.add(3)
 
 let conjuntoB = new Conjunto()
+conjuntoB.add(2)
 conjuntoB.add(3)
 conjuntoB.add(4)
-conjuntoB.add(5)
-conjuntoB.add(6)
 
-let uniaoAB = conjuntoA.uniao(conjuntoB)
-console.log(uniaoAB.valores())
+let intersecaoAB = conjuntoA.intersecao(conjuntoB)
+console.log(intersecaoAB.valores())
