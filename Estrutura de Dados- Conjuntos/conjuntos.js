@@ -48,6 +48,7 @@ function Conjunto(){
  }
 
  this.uniao = function(outroConjunto){
+     // uni duas estancias diferente em unico array
     let uniaoConjunto = new Conjunto(),
     valores = this.valores()
 
@@ -65,6 +66,7 @@ function Conjunto(){
  }
 
  this.intersecao = function(outroConjunto){
+    //  Verifica se há elemento iguais em ambas as instâncias
      let intersecaoConju = new Conjunto(),
      valores = this.valores()
 
@@ -75,6 +77,18 @@ function Conjunto(){
      }
      return intersecaoConju
 
+ }
+
+ this.diferente = function(outroConjunto){
+    let diferentConj = new Conjunto()
+    valores = this.valores()
+    
+    for(let i = 0; i < valores.length; i++){
+        if (!outroConjunto.esta(this.valores[i])) {
+            diferentConj.add(this.valores[i])
+        }
+    }
+    return diferentConj
  }
 }
 // instanciando a classe conjuntos
