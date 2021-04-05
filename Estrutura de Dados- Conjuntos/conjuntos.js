@@ -37,7 +37,7 @@ function Conjunto(){
  }
 
  this.valores = function(){
-    // retorna o array com todos o itens do conjunto
+    // retorna o array com todos os elementos do conjunto
     let valores = [],
     chaves = Object.keys(itens)
 
@@ -48,7 +48,7 @@ function Conjunto(){
  }
 
  this.uniao = function(outroConjunto){
-     // uni duas estancias diferente em unico array
+     // uni os elementos passados nas estâncias em unico array
     let uniaoConjunto = new Conjunto(),
     valores = this.valores()
 
@@ -66,7 +66,7 @@ function Conjunto(){
  }
 
  this.intersecao = function(outroConjunto){
-    //  Verifica se há elemento iguais em ambas as instâncias
+    //  Verifica se há elementos iguais em ambas as instâncias, ou seja no dois conjuntos
      let intersecaoConju = new Conjunto(),
      valores = this.valores()
 
@@ -80,8 +80,10 @@ function Conjunto(){
  }
 
  this.diferente = function(outroConjunto){
+    /* Verifica os elementos das instancias que se comparam utilizando seus tamanhos 
+    e vêem quais não se repetem, ou diferentes entre si */      
     let diferentConj = new Conjunto()
-    valores = this.valores()
+    valores = this.valores()//[123]
     
     for(let i = 0; i < valores.length; i++){
         if (!outroConjunto.esta(this.valores[i])) {
@@ -90,6 +92,22 @@ function Conjunto(){
     }
     return diferentConj
  }
+
+ this.subConj = function(outroConjunto){
+     if(this.tamanho() > outroConjunto.tamanho()){
+         return false
+     }else{
+         let valores = this.valores()
+
+         for(let i = 0; i < valores.length; i++){
+             if(!outroConjunto.esta(valores[i])){
+                 return false
+             }
+         }
+         return true
+     }
+     
+   }
 }
 // instanciando a classe conjuntos
 
@@ -97,12 +115,17 @@ let conjuntoA = new Conjunto()
 
 conjuntoA.add(1)
 conjuntoA.add(2)
-conjuntoA.add(3)
+
 
 let conjuntoB = new Conjunto()
+conjuntoB.add(1)
 conjuntoB.add(2)
 conjuntoB.add(3)
-conjuntoB.add(4)
 
-let intersecaoAB = conjuntoA.intersecao(conjuntoB)
-console.log(intersecaoAB.valores())
+let conjuntoC = new Conjunto()
+conjuntoC.add(2)
+conjuntoC.add(3)
+conjuntoC.add(4)
+
+console.log(conjuntoA.subConj(conjuntoB))
+console.log(conjuntoA.subConj(conjuntoC))
